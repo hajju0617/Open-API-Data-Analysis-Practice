@@ -8,6 +8,7 @@ with open("energyUseDataSummaryInfo_personal_2015_2024(2).json", "r", encoding="
 
 df = pd.DataFrame(data["data"])
 print("df = \n", df)
+print("=" * 40)
 
 def get_season(month):
     month = int(month)
@@ -22,6 +23,7 @@ def get_season(month):
 
 df["season"] = df["MON"].apply(get_season)
 print("df = \n", df)
+print("=" * 40)
 
 df_to_json = df.to_json(force_ascii=False, indent=2, orient="records")
 print("df_to_json = \n", df_to_json)

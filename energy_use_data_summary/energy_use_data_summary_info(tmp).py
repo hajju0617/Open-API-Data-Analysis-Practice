@@ -34,12 +34,12 @@ for dt in date_list:
     url = f'{BASE_URL}/{year}/{month}'
 
     try:
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, timeout=5)
         
         if response.status_code == 200:
             data = response.json()
             
-            # API 응답 결과 코드 확인 (INFO-000이 정상호출)
+            # API 응답 결과 코드 확인
             result_code = data.get('energyUseDataSummaryInfo', {}).get('RESULT', {}).get('CODE')
             
             if result_code == "INFO-000":
@@ -72,7 +72,7 @@ for dt in date_list:
         print(f"[EXCEPTION] {year}-{month} 수집 중 오류가 발생하였음 : {e}")
 
     # API 과부하 방지 딜레이
-    time.sleep(0.5) 
+    time.sleep(0.3) 
 
 output_file = "energyUseDataSummaryInfo_personal_2015_2024(2).json"
 

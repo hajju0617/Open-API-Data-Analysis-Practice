@@ -6,9 +6,7 @@ import datetime
 from dotenv import load_dotenv
 import os
 os.chdir('C:\Data-Analysis-Practice\energy_use_data_summary\data')
-
 load_dotenv()
-
 API_KEY = os.getenv('API_KEY')
 BASE_URL = f'http://openapi.seoul.go.kr:8088/{API_KEY}/json/energyUseDataSummaryInfo/1/7'
 
@@ -24,7 +22,6 @@ while current_date <= end_date:
     current_date += relativedelta(months = +1)
 
 results = []
-
 print('[START] 데이터 수집 시작')
 
 for dt in date_list:
@@ -34,17 +31,14 @@ for dt in date_list:
     url = f'{BASE_URL}/{year}/{month}'
 
     try:
-        response = requests.get(url, timeout=5)
+        response = requests.get(url, timeout=3)
         
         if response.status_code == 200:
             data = response.json()
             
-            # API 응답 결과 코드 확인
-            result_code = data.get('energyUseDataSummaryInfo', {}).get('RESULT', {}).get('CODE')
+            result_code = data.get("energyUseDataSummaryInfo", {}).get("RESULT", {}).get("CODE")
             
-            if result_code == "INFO-000":
-                print('[SUCCESS] API 호출 성공.')
-                
+            if result_code == "INFO-000":                
                 rows = data.get("energyUseDataSummaryInfo", {}).get("row", [])
                 found_personal_data = False 
                 
@@ -54,10 +48,10 @@ for dt in date_list:
                                             "YEAR": row.get("YEAR"),
                                             "MON": row.get("MON"),
                                             "MM_TYPE": row.get("MM_TYPE"),
-                                            "EUS": row.get("EUS"),          # 현년 전기사용량
-                                            "GUS": row.get("GUS"),          # 현년 가스사용량
-                                            "WUS": row.get("WUS"),          # 현년 수도사용량
-                                            "HUS": row.get("HUS"),          # 현년 지역난방 사용량
+                                            "EUS": row.get("EUS"),              # 현년 전기사용량
+                                            "GUS": row.get("GUS"),              # 현년 가스사용량
+                                            "WUS": row.get("WUS"),              # 현년 수도사용량
+                                            "HUS": row.get("HUS"),              # 현년 지역난방 사용량
                                             "REG_DATE": row.get("REG_DATE")
                                         }
                         results.append(extracted_data)
@@ -70,11 +64,10 @@ for dt in date_list:
                     print(f"[FAIL] {year}-{month} '개인'타입의 데이터가 응답에 존재하지 않음.")            
     except Exception as e:
         print(f"[EXCEPTION] {year}-{month} 수집 중 오류가 발생하였음 : {e}")
-
-    # API 과부하 방지 딜레이
+        
     time.sleep(0.3) 
 
-output_file = "energyUseDataSummaryInfo_personal_2015_2024(2).json"
+output_file = "energy_use_data_summary_info_personal_2015_2024.json"
 
 final_json_data = {
     "start_date": start_date.strftime('%Y-%m'),

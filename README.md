@@ -13,6 +13,13 @@
 
 ---
 
+### 공부용으로 사용했던 Repository
+
+- [Python-study](https://github.com/hajju0617/Python-study/tree/main/for-data-analysis)
+- [Data-Analysis-Study](https://github.com/hajju0617/Data-Analysis-Study)
+
+---
+
 - [What - 이터레이터, 제너레이터](https://velog.io/@hajju/Python-What-%EC%9D%B4%ED%84%B0%EB%A0%88%EC%9D%B4%ED%84%B0-%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%ED%84%B0)
 
 - [What - axis=0, 1](https://velog.io/@hajju/Pandas-What-axis0-1)

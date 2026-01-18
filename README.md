@@ -2,14 +2,14 @@
 
 ---
 
-- **bike_precipitation_corr.ipynb**
+- [bike_precipitation_corr.ipynb](https://github.com/hajju0617/Open-API-Data-Analysis-Practice/blob/main/bike_precipitation_corr.ipynb)
     - [data.seoul.go.kr](https://data.seoul.go.kr/), [**data.kma.go.kr**](http://data.kma.go.kr) - 따릉이 이용자 수와 강수량 간의 상관관계.
-- **energy_use_data_summary**
+- [energy_use_data_summary](https://github.com/hajju0617/Open-API-Data-Analysis-Practice/tree/main/energy_use_data_summary)
     - [data.seoul.go.kr](http://data.seoul.go.kr/) - 서울시 에코마일리지 에너지사용량 통계정보 분석.
-- **kma_1month_forecast**
-    - [weather.go.kr](http://weather.go.kr/) - 기상청 1개월 전망 RSS (XML) -> CSV, JSON 데이터 수집.
-- **pedestrian_traffic.ipynb**
+- [pedestrian_traffic.ipynb](https://github.com/hajju0617/Open-API-Data-Analysis-Practice/blob/main/pedestrian_traffic.ipynb)
     - [data.seoul.go.kr](https://data.seoul.go.kr/) - 서울 도시데이터 센서 유동인구 측정 정보
+- [kma_1month_forecast](https://github.com/hajju0617/Open-API-Data-Analysis-Practice/tree/main/kma_1month_forecast)
+    - [weather.go.kr](http://weather.go.kr/) - 기상청 1개월 전망 RSS (XML) -> CSV, JSON 데이터 수집.
 
 ---
 
